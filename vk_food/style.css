@@ -1,0 +1,90 @@
+/*****************************************************
+                * common CSS *
+*****************************************************/
+img {max-width: 100%;}
+p { word-break: initial; text-align: justify; margin: 0;} 
+.pc { display: block; } 
+.mo { display: none; } 
+.flex_col {display: flex; flex-direction: column; gap: 35px;}
+.circle {position: relative; margin: 5px 10px; padding-left: 22px;}
+.circle::after {    
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #7C7C7C;
+    transform: translate(50%, 50%);
+}
+
+/* article */
+.template__type1__section article { max-width: 950px; width: 100%; margin: 40px auto 0; padding: 0; box-sizing: border-box; word-wrap: break-word; word-break: keep-all; color: #404040; } 
+.template__type1__section article > p.caution {text-align: center; font-size: 14px; font-weight: lighter;}
+.template__type1__section .article-wrap h2.title { text-align: center; color: #000; font-size: 40px; } 
+.template__type1__section .article-wrap h2 { text-align: center; color: #000; font-size: 26px; } 
+.template__type1__section .article-wrap h3 { margin-bottom: 0; padding-bottom: 0;}
+.template__type1__section .article-detail { display: flex; flex-direction: column; gap: 35px;}
+.template__type1__section .article-detail p { font-size: 18px;}
+.template__type1__section .article-detail .article-img {width: 100%; gap: 10px; display: flex; justify-content: center;}
+.template__type1__section .article-detail .article-img img {width: 50%;}
+
+ .template__type1__section h3 { margin-bottom: 10px; color: #000; padding-bottom: 10px; } 
+ .template__type1__section .pb40 { padding-bottom: 40px; } 
+ 
+ .sub_contents_div { display:flex; justify-content: center; gap: 15px; width: 95%; margin: 0 auto;}
+ .sub_contents_div .sub_contents { cursor: pointer; position: relative; width: 24%; } 
+ .sub_contents_div .sub_contents_title { font-weight: 600; color: #FFF !important; font-size: 12px; } 
+ .sub_contents_div .sub_title { color: #000F; font-weight: 600; } 
+ .sub_contents_div .sub_title2 { padding-top: 45px; color: #000; font-size: 16px; font-weight: 700; } 
+ .sub_contents .image_resized {height: 145px;}
+
+ .template__type1__section .tipBox { align-items: center; border: 1px solid #FFBCB5; padding: 45px; border-radius: 8px; margin: 30px auto 0; } 
+ .template__type1__section .tipBox .tipContent { align-items: center;}
+ .template__type1__section .tipBox img { width: 48px; height: 48px; } 
+ .template__type1__section .tipBox:last-child { padding: 30px 0px 0px; } 
+ .template__type1__section .tipBox .tip_bold { font-weight: 900; font-size: 20px;} 
+ .template__type1__section .tipBox .tip_bold strong{  color: #FF7061; } 
+ .template__type1__section .highlight { color: #ff7062 } 
+
+ /* ------------------- Korean Travel Guide ------------------- */
+ .imgCase { text-align: center; margin: 10px 0; cursor:pointer; position:relative; } 
+ .submain__dimed {border-radius: 10px}
+ .img-sub-text { display: block; padding: 10px 0 10px 0; text-align: center; font-size: 14px; color: #888; line-height: 1.4; letter-spacing: -0.02em; } 
+ .btn_arrow_box {align-items:center; bottom:0; display:flex; justify-content:space-between; padding:10px 8px; position:absolute;width:100%;}
+ /* .btn__arrow span, .btn__arrow .txt {text-transform: uppercase; } */
+ .btn__arrow::after {     margin: 4px 0 0 2px; width: 15px; height: 18px; background-size: cover; background-image: url(/static/front/images/ico/ico_main_arrow_right.svg); }
+
+
+ /* ------------------- Visiting Korean Restaurants in Korea ------------------- */
+ .Search { color: #FF7061; text-align: center; text-decoration: underline #FF7061; } 
+ .Search a { color: #FF7061;} 
+ .txt { color: #FFF !important; font-size: 12px !important; } 
+
+/*****************************************************
+                * 언어별 CSS *
+*****************************************************/
+
+
+
+/*****************************************************
+                * reponsible CSS *
+*****************************************************/ 
+@media screen and (max-width: 780px) {
+ .pc { display: none; } 
+ .mo { display: block; } 
+
+ article {max-width: 100%; padding: 0 15px;}
+ /* .article-wrap {padding: 0 15px;} */
+ .article-detail .article-img img {width: 50%;}
+
+
+ .sub_contents_div { flex-wrap: wrap; gap: 10px; } 
+ .sub_contents { width: 48%; } 
+
+ /*.template__type1__section*/ img { width: 100%; } 
+ .wrapper .imgCase.w30 > div { width: 100%; } 
+ .wrapper .imgCase.w45 img { width: 100%; } 
+ .wrapper .imgCase.disin img { width: 100%; } 
+ }

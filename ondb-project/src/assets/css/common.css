@@ -1,0 +1,2529 @@
+@import url("https://vr.visitkorea.or.kr/assets/font_nua.css");
+
+/*****************************************************
+ * CSS 변수
+ *****************************************************/
+
+:root {
+  /* 폰트 패밀리 */
+  --font-main: "Mplus1p";
+  --font-title: "SBAggro";
+
+  /* 색상 */
+  --color-primary: #48cadf;
+  --color-secondary: #fbe5df;
+  --color-accent-blue: #d5edf4;
+  --color-accent-brown: #bd7f6f;
+  --color-accent-orange: #d56d50;
+  --color-accent-red: #ce5a3a;
+  --color-accent-pink: #f9bfaf;
+  --color-border: #dfdfdf;
+  --color-border_light: #cccccc;
+  --color-bg-light: #f4f4f4;
+  --color-bg-footer: #f7f7f7;
+  --color-white: #ffffff;
+  --color-text: #333333;
+  --color-text-sub: #555555;
+  --color-highlight-blue: #b4eeff;
+  --color-highlight-green: #02ba40;
+}
+
+[data-font="main"] {
+  font-family: "Mplus1p", sans-serif;
+}
+[data-font="title"] {
+  font-family: "SBAggro", sans-serif;
+}
+
+/*****************************************************
+ * 이벤트 풀페이지 스타일링
+ *****************************************************/
+
+/* 섹션 스타일링 */
+#vk_event {
+  -webkit-font-smoothing: antialiased;
+}
+#vk_event [class^="section-"] {
+}
+#vk_event [class^="section-"] .section-inner {
+  position: relative;
+  width: 1200px;
+  max-width: 100%;
+  margin-inline: auto;
+  padding-inline: 40px;
+}
+
+/* 배너 */
+#vk_event .section-banner {
+}
+#vk_event .section-banner .section-inner {
+}
+#vk_event .section-banner .banner-img-pc {
+  display: block;
+  width: 100%
+}
+#vk_event .section-banner .banner-img-mobile {
+  display: none;
+}
+
+/* 방문 이벤트 */
+#vk_event .section-visit {
+  background-color: var(--color-secondary);
+  padding: 54px 0;
+}
+#vk_event .section-visit .section-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#vk_event .section-visit .event-top-icon {
+  margin-bottom: 10px;
+  width: 100px;
+}
+#vk_event .section-visit .visit-text-ko {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 150%;
+  color: var(--color-accent-brown);
+  text-align: center;
+}
+#vk_event .section-visit .visit-text-en {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 150%;
+  color: var(--color-accent-brown);
+  text-align: center;
+}
+
+/* 부스 이벤트 */
+#vk_event .section-booth {
+  background-color: var(--color-accent-blue);
+  padding: 80px 0;
+}
+#vk_event .section-booth .section-inner {
+}
+#vk_event .section-booth .booth-bg-clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+#vk_event .section-booth .booth-bg-clouds .cloud {
+  position: absolute;
+}
+#vk_event .section-booth .booth-bg-clouds .cloud.cloud1 {
+  width: 292px;
+  top: 9%;
+  left: 100%;
+}
+#vk_event .section-booth .booth-bg-clouds .cloud.cloud2 {
+  width: 160px;
+  top: 23%;
+  left: -15%;
+}
+#vk_event .section-booth .booth-bg-clouds .cloud.cloud3 {
+  width: 160px;
+  top: 32%;
+  left: 110%;
+}
+#vk_event .section-booth .booth-bg-clouds .cloud.cloud4 {
+  width: 288px;
+  top: 42%;
+  left: -27%;
+}
+#vk_event .section-booth .booth-bg-clouds .cloud.cloud5 {
+  width: 160px;
+  top: 64%;
+  left: -20%;
+}
+#vk_event .section-booth .booth-bg-clouds .cloud.cloud6 {
+  width: 288px;
+  top: 71%;
+  left: 99%;
+}
+#vk_event .section-booth .booth-tab-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+#vk_event .section-booth .booth-tab-group .booth-tab {
+}
+#vk_event .section-booth .booth-tab-content {
+  width: 100%;
+  margin-top: 144px;
+}
+#vk_event .section-booth .booth-tab-content .booth-panel {
+  display: none;
+  flex-direction: column;
+  gap: 144px;
+  width: 100%;
+}
+#vk_event .section-booth .booth-tab-content .booth-panel.active {
+  display: flex;
+}
+#vk_event .section-booth .booth-tab-content .booth-panel > [class^="airport-"] {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--color-bg-light);
+  border-radius: 12px;
+  padding: 40px 32px;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  > [class^="airport-"]
+  .event-title-row {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  > [class^="airport-"]
+  .event-title-row
+  .event-title {
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--color-text);
+  text-align: center;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  > [class^="airport-"]
+  .event-title-row
+  .event-title
+  > b {
+  font-weight: 700;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  > [class^="airport-"]
+  .event-title-row
+  .event-title
+  > strong {
+  font-weight: 900;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  > [class^="airport-"]
+  .event-title-row
+  .event-subtitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 150%;
+  color: var(--color-text);
+  text-align: center;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  > [class^="airport-"]
+  .box-illustration {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  > [class^="airport-"]
+  .box-illustration
+  .illustration-img {
+  width: 100%;
+  object-fit: contain;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  > [class^="airport-"]
+  .event-content {
+  margin-top: 40px;
+}
+
+/* 부스 이벤트 컨텐츠 */
+#vk_event .section-booth .booth-tab-content .booth-panel .airport-event-box {
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .box-illustration {
+  right: 0;
+  transform: translateY(-50%);
+  width: 245px;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .box-illustration
+  > img {
+  max-width: 245px;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-main-img {
+  flex-shrink: 0;
+  width: 313px;
+  aspect-ratio: 1 / 1 auto;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-main-img
+  > img {
+  width: 100%;
+  object-fit: contain;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-info
+  .info-item {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--color-text);
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-info
+  .info-item
+  .item-tit {
+  flex-shrink: 0;
+  font-weight: 700;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-info
+  .info-item
+  .item-desc {
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-info
+  .info-item
+  .item-desc
+  > p {
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-info
+  .info-item
+  .item-desc
+  > p
+  > em {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 150%;
+  color: #1d5f69;
+  font-style: normal;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-info
+  .info-item
+  > b {
+  flex-shrink: 0;
+  font-weight: 700;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-info
+  .info-item
+  > em {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 150%;
+  color: #1d5f69;
+  font-style: normal;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-info
+  .info-item_img {
+  flex-shrink: 0;
+  display: inline-block;
+  width: 100%;
+  padding-left: 55px;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-info
+  .info-item_img
+  > img {
+  width: 291px;
+  height: 104px;
+  object-fit: cover;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-prizes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-prizes
+  .prize-title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 150%;
+  color: var(--color-text);
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-prizes
+  .prize-list {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-prizes
+  .prize-list
+  .prize-item {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: calc((100% / 3) - 20px);
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-prizes
+  .prize-list
+  .prize-item
+  > img {
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-prizes
+  .prize-list
+  .prize-item
+  > span {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--color-text);
+  text-align: center;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-prizes
+  .event-prize-mobile {
+  display: none;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-description {
+  margin-top: 40px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--color-text);
+  text-align: left;
+}
+
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel#tab-cheongju
+  .airport-event-box
+  .event-content-box
+  .event-info
+  .info-item:nth-child(3) {
+  flex-wrap: wrap;
+}
+
+/* 부스 이벤트 정보 */
+#vk_event .section-booth .booth-tab-content .booth-panel .airport-info-box {
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-info-box
+  .box-illustration {
+  left: 0;
+  transform: translate(-28%, -37%);
+  width: 568px;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-info-box
+  .box-illustration
+  > img {
+  max-width: 568px;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-info-box
+  .event-content {
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-info-box
+  .airport-info-header {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-info-box
+  .airport-info-header
+  .info-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-info-box
+  .airport-info-header
+  .info-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-border);
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-info-box
+  .airport-info-header
+  .info-item
+  .item-tit {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 150%;
+  color: var(--color-text);
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-info-box
+  .airport-info-header
+  .info-item
+  .item-txt {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--color-text);
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-info-box
+  .airport-tour-list {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: 24px;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-info-box
+  .airport-tour-list
+  .tour-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: calc((100% / 3) - 20px);
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-info-box
+  .airport-tour-list
+  .tour-item
+  > img {
+  max-width: 270px;
+  width: 100%;
+  aspect-ratio: 270 / 180 auto;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-info-box
+  .airport-tour-list
+  .tour-item
+  .tour-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-info-box
+  .airport-tour-list
+  .tour-item
+  .tour-description
+  .tour-title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 150%;
+  color: var(--color-text);
+  text-align: center;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-info-box
+  .airport-tour-list
+  .tour-item
+  .tour-description
+  .tour-desc {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--color-text);
+  text-align: center;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-info-box
+  .airport-tour-list
+  .tour-item
+  .btn__event {
+}
+
+/* 부스 이벤트 프로모션 */
+#vk_event .section-booth .booth-tab-content .booth-panel .airport-promo-box {
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .box-illustration {
+  right: 0;
+  transform: translateY(-39%);
+  width: 298px;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .box-illustration
+  > img {
+  max-width: 298px;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .event-content {
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .promo-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--color-border);
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .promo-content
+  .promo-tag {
+  font-weight: 700;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .promo-content
+  .promo-list {
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .promo-content
+  .promo-list
+  > p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--color-text);
+  text-align: center;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .promo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .promo-list
+  .promo-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .promo-list
+  .promo-item
+  .promo-logo {
+  flex-shrink: 0;
+  width: 253px;
+  aspect-ratio: 253 / 150 auto;
+  object-fit: contain;
+  border-radius: 10px;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .promo-list
+  .promo-item
+  .promo-item-content {
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .promo-list
+  .promo-item
+  .promo-item-content
+  .promo-item-title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 150%;
+  color: var(--color-text);
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .promo-list
+  .promo-item
+  .promo-item-content
+  .promo-item-title
+  .promo-period {
+  margin-left: 4px;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: inherit;
+  color: inherit;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .promo-list
+  .promo-item
+  .promo-item-content
+  .promo-item-desc {
+  margin-top: 4px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--color-text);
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .promo-list
+  .promo-item
+  .promo-item-content
+  .btn__event {
+  margin-top: 8px;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .promo-list
+  .promo-item
+  .promo-item-content
+  .btn__event
+  > img {
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .promo-list
+  .promo-item
+  .promo-item-content
+  .btn__event[disabled] {
+  width: unset;
+  padding-inline: 65px;
+  border-color: #ccc;
+  color: #ccc;
+  pointer-events: none;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .promo-list
+  .promo-item
+  .promo-item-content
+  .btn__event[disabled]
+  > img {
+  display: none;
+}
+#vk_event
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-promo-box
+  .promo-note {
+  margin-top: 32px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--color-text);
+}
+
+/* 퀴즈 이벤트 */
+#vk_event .section-quiz-event {
+  padding: 80px 0;
+}
+#vk_event .section-quiz-event .section-inner {
+}
+#vk_event .section-quiz-event .quiz-event-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-secondary);
+  border-radius: 12px;
+  padding: 40px;
+}
+
+/* 퀴즈 이벤트 데코 */
+#vk_event .section-quiz-event .quiz-deco {
+  position: absolute;
+}
+#vk_event .section-quiz-event .quiz-deco.quiz-deco-heart {
+  width: 127px;
+  top: -2%;
+  left: 7%;
+}
+#vk_event .section-quiz-event .quiz-deco.quiz-deco-heart > img {
+  max-width: 127px;
+}
+#vk_event .section-quiz-event .quiz-deco.quiz-deco-thumb {
+  width: 144px;
+  top: 20%;
+  right: -2%;
+}
+#vk_event .section-quiz-event .quiz-deco.quiz-deco-thumb > img {
+  max-width: 144px;
+}
+#vk_event .section-quiz-event .quiz-deco > img {
+  width: 100%;
+  object-fit: contain;
+}
+
+/* 퀴즈 이벤트 타이틀 */
+#vk_event .section-quiz-event .quiz-title-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#vk_event .section-quiz-event .quiz-title-row .quiz-title {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 150%;
+  color: var(--color-text);
+}
+#vk_event .section-quiz-event .quiz-title-row .quiz-period {
+  margin-top: 2px;
+  background-color: var(--color-text);
+  border-radius: 10px;
+  padding-inline: 8px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--color-white);
+}
+#vk_event .section-quiz-event .quiz-title-row .quiz-winner {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 150%;
+  color: var(--color-accent-orange);
+}
+#vk_event .section-quiz-event .quiz-title-row .quiz-winner > b {
+  font-weight: 500;
+}
+#vk_event .section-quiz-event .quiz-title-row .quiz-desc {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 150%;
+  color: var(--color-text);
+  text-align: center;
+}
+
+/* 퀴즈 이벤트 경품 */
+#vk_event .section-quiz-event .quiz-prize-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  width: 100%;
+}
+#vk_event .section-quiz-event .quiz-prize-box .quiz-prize-title {
+  background-color: var(--color-accent-pink);
+  padding-inline: 4px;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 100%;
+  color: var(--color-text);
+}
+#vk_event .section-quiz-event .quiz-prize-box .quiz-prize-list {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  margin-top: 24px;
+  width: 100%;
+}
+#vk_event
+  .section-quiz-event
+  .quiz-prize-box
+  .quiz-prize-list
+  .quiz-prize-item {
+  width: 336px;
+  max-width: 100%;
+}
+#vk_event
+  .section-quiz-event
+  .quiz-prize-box
+  .quiz-prize-list
+  .quiz-prize-item
+  > img {
+  width: 100%;
+  aspect-ratio: 336 / 200 auto;
+  object-fit: contain;
+}
+#vk_event
+  .section-quiz-event
+  .quiz-prize-box
+  .quiz-prize-list
+  .quiz-prize-item
+  .quiz-prize-label {
+  margin-top: 12px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 150%;
+  color: var(--color-text);
+  text-align: center;
+}
+#vk_event
+  .section-quiz-event
+  .quiz-prize-box
+  .quiz-prize-list
+  .quiz-prize-item
+  .quiz-prize-label
+  .quiz-prize-period {
+  margin-top: 2px;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 150%;
+  color: var(--color-accent-orange);
+}
+#vk_event .section-quiz-event .quiz-prize-box .quiz-prize-mobile {
+  display: none;
+}
+
+/* 퀴즈 이벤트 질문 */
+#vk_event .section-quiz-event .quiz-question-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+#vk_event .section-quiz-event .quiz-question-box .quiz-question-title {
+  background-color: var(--color-accent-pink);
+  padding-inline: 4px;
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 100%;
+  color: var(--color-text);
+}
+#vk_event .section-quiz-event .quiz-question-box .quiz-question-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  margin-top: 24px;
+}
+#vk_event
+  .section-quiz-event
+  .quiz-question-box
+  .quiz-question-list
+  .quiz-question {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+#vk_event
+  .section-quiz-event
+  .quiz-question-box
+  .quiz-question-list
+  .quiz-question
+  .quiz-q {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 150%;
+  color: var(--color-text);
+}
+#vk_event
+  .section-quiz-event
+  .quiz-question-box
+  .quiz-question-list
+  .quiz-question
+  .quiz-q
+  > em {
+  font-style: normal;
+  color: var(--color-accent-orange);
+}
+#vk_event
+  .section-quiz-event
+  .quiz-question-box
+  .quiz-question-list
+  .quiz-question
+  .quiz-choices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+#vk_event
+  .section-quiz-event
+  .quiz-question-box
+  .quiz-question-list
+  .quiz-question
+  .quiz-choices
+  > label {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--color-text);
+  cursor: pointer;
+}
+#vk_event
+  .section-quiz-event
+  .quiz-question-box
+  .quiz-question-list
+  .quiz-question
+  .quiz-choices
+  > label
+  > input {
+  display: none;
+}
+#vk_event
+  .section-quiz-event
+  .quiz-question-box
+  .quiz-question-list
+  .quiz-question
+  .quiz-choices
+  > label:has(> input:checked) {
+  color: var(--color-accent-orange);
+  font-weight: 700;
+}
+
+/* 퀴즈 이벤트 팁 */
+#vk_event .section-quiz-event .quiz-tip-box {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--color-bg-light);
+  border-radius: 12px;
+  padding: 40px 32px;
+  margin-top: 40px;
+}
+#vk_event .section-quiz-event .quiz-tip-box .quiz-illustration {
+  position: absolute;
+  top: 3%;
+  left: -7%;
+  width: 126px;
+}
+#vk_event .section-quiz-event .quiz-tip-box .quiz-illustration > img {
+  width: 100%;
+  max-width: 126px;
+  object-fit: contain;
+}
+#vk_event .section-quiz-event .quiz-tip-box .quiz-tip-title {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 150%;
+  color: var(--color-text);
+}
+#vk_event .section-quiz-event .quiz-tip-box .quiz-tip-desc {
+  margin-top: 8px;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 150%;
+  color: var(--color-text);
+  text-align: center;
+}
+#vk_event .section-quiz-event .quiz-tip-box .quiz-tip-imgs {
+  margin-top: 40px;
+  width: 310px;
+}
+#vk_event .section-quiz-event .quiz-tip-box .quiz-tip-imgs > img {
+  width: 100%;
+  max-width: 310px;
+  object-fit: contain;
+}
+
+/* 퀴즈 이벤트 버튼 */
+#vk_event .section-quiz-event .quiz-submit-row {
+  margin-top: 40px;
+}
+#vk_event .section-quiz-event .quiz-submit-row .btn__event {
+}
+
+/* 푸터 카피라이트 */
+#vk_event .section-footer {
+  background-color: var(--color-bg-footer);
+  padding: 16px 64px;
+  width: 100%;
+}
+#vk_event .section-footer .section-footer-inner {
+  width: 100%;
+}
+#vk_event .section-footer .section-footer-inner .section-footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+#vk_event
+  .section-footer
+  .section-footer-inner
+  .section-footer-content
+  .section-footer-logo {
+  width: 84px;
+}
+#vk_event
+  .section-footer
+  .section-footer-inner
+  .section-footer-content
+  .section-footer-logo
+  > img {
+  width: 100%;
+  object-fit: contain;
+}
+#vk_event
+  .section-footer
+  .section-footer-inner
+  .section-footer-content
+  .section-footer-text {
+}
+#vk_event
+  .section-footer
+  .section-footer-inner
+  .section-footer-content
+  .section-footer-text
+  > span {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 120%;
+  color: var(--color-text-sub);
+}
+
+/* 공용 컴포넌트 */
+.btn__event,
+.btn__link,
+.btn-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  transition: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.btn-toggle {
+  width: 100%;
+  height: 51px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+.btn-toggle.active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn-more {
+  position: relative;
+  width: 200px;
+  height: 48px;
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+.btn-more:hover {
+  background-color: #48cadf4d;
+}
+.btn-more > img {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 12px;
+}
+
+.btn-submission {
+  width: 320px;
+  height: 54px;
+  background-color: var(--color-accent-orange);
+  border: 1px solid var(--color-accent-orange);
+  color: var(--color-white);
+}
+.btn-submission:hover {
+  background-color: var(--color-accent-red);
+}
+
+.tag-highlight {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  padding: 0 5px;
+  border-radius: 0;
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 150%;
+}
+.tag-highlight.color-blue {
+  background-color: var(--color-highlight-blue);
+  color: var(--color-text);
+}
+.tag-highlight.color-green {
+  background-color: var(--color-highlight-green);
+  color: var(--color-white);
+}
+
+.view-pc {
+  display: block;
+}
+.view-mo {
+  display: none;
+}
+
+/*****************************************************
+ * 반응형 (640px)
+ *****************************************************/
+
+@media (max-width: 640px) {
+  /* 섹션 스타일링 */
+  #vk_event [class^="section-"] .section-inner {
+    padding-inline: 20px;
+  }
+
+  /* 배너 */
+  #vk_event .section-banner .banner-img-pc {
+    display: none;
+  }
+  #vk_event .section-banner .banner-img-mobile {
+    display: block;
+  }
+
+  /* 방문 이벤트 */
+  #vk_event .section-visit {
+    padding: 24px 0;
+  }
+  #vk_event .section-visit .event-top-icon {
+    width: 59px;
+    margin-bottom: 8px;
+  }
+  #vk_event .section-visit .visit-text-ko {
+    font-size: 20px;
+  }
+  #vk_event .section-visit .visit-text-en {
+    font-size: 20px;
+  }
+
+  /* 부스 이벤트 */
+  #vk_event .section-booth {
+    padding: 40px 0;
+  }
+  #vk_event .section-booth .booth-bg-clouds {
+    display: none;
+  }
+  #vk_event .section-booth .booth-tab-group {
+    gap: 8px;
+  }
+  #vk_event .section-booth .booth-tab-content {
+    margin-top: 40px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    > [class^="airport-"] {
+    padding: 20px 12px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    > [class^="airport-"]
+    .event-title-row {
+    gap: 2px;
+    z-index: 1;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    > [class^="airport-"]
+    .event-title-row
+    .event-title {
+    font-size: 24px;
+    text-align: center;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    > [class^="airport-"]
+    .event-title-row
+    .event-subtitle {
+    font-size: 13px;
+    text-align: center;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    > [class^="airport-"]
+    .event-content {
+    margin-top: 20px;
+  }
+  #vk_event .section-booth .booth-tab-content .booth-panel {
+    gap: 40px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .box-illustration {
+    width: 86px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .box-illustration
+    > img {
+    max-width: 86px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-main-img {
+    width: 100%;
+    padding-inline: 45px;
+    aspect-ratio: unset;
+    text-align: center;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-main-img
+    > img {
+    max-width: 220px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-content {
+    margin-top: 20px;
+    flex-direction: column;
+    gap: 8px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-content-box
+    .event-prizes
+    .prize-list {
+    display: none;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-content-box
+    .event-prizes
+    .event-prize-mobile {
+    display: flex;
+    flex-direction: column;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-content-box
+    .event-prizes
+    .event-prize-mobile
+    .prize-img {
+    text-align: center;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-content-box
+    .event-prizes
+    .event-prize-mobile
+    .prize-img
+    > img {
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-content-box
+    .event-prizes
+    .event-prize-mobile
+    .prize-desc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-content-box
+    .event-prizes
+    .event-prize-mobile
+    .prize-desc
+    .prize-desc-item {
+    position: relative;
+    width: calc(100% / 3);
+    text-align: center;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-content-box
+    .event-prizes
+    .event-prize-mobile
+    .prize-desc
+    .prize-desc-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -8px;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 12px;
+    background-color: var(--color-border_light);
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-content-box
+    .event-prizes
+    .event-prize-mobile
+    .prize-desc
+    .prize-desc-item
+    > span {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 150%;
+    color: var(--color-text);
+    text-align: center;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-content-box
+    .event-info
+    .info-item {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2px;
+    font-size: 13px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-content-box
+    .event-info
+    .info-item
+    .item-desc {
+    text-align: center;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-content-box
+    .event-info
+    .info-item
+    .item-desc
+    > p {
+    text-align: center;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-content-box
+    .event-info
+    .info-item_img {
+    padding-left: 0 !important;
+    margin-top: 6px;
+    text-align: center;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-content-box
+    .event-info
+    .info-item_img
+    > img {
+    width: 183px;
+    height: 66px;
+    object-fit: cover;
+    margin-inline: auto;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-description {
+    margin-top: 20px;
+    font-size: 10px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-info-box
+    .box-illustration {
+    width: 137px;
+    transform: translate(0, -44%);
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-info-box
+    .box-illustration
+    > img {
+    max-width: 137px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-info-box
+    .airport-info-header {
+    gap: 24px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-info-box
+    .airport-info-header
+    .info-item:not(:last-child)::after {
+    bottom: -12px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-info-box
+    .airport-info-header
+    .info-item
+    .item-tit {
+    font-size: 13px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-info-box
+    .airport-info-header
+    .info-item
+    .item-txt {
+    font-size: 13px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-info-box
+    .airport-tour-list {
+    flex-direction: column;
+    margin-top: 20px;
+    gap: 20px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-info-box
+    .airport-tour-list
+    .tour-item {
+    width: 100%;
+    gap: 8px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-info-box
+    .airport-tour-list
+    .tour-item
+    > img {
+    max-width: calc(100% - 40px);
+    width: 220px;
+    height: 120px;
+    aspect-ratio: unset;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-info-box
+    .airport-tour-list
+    .tour-item
+    .tour-description {
+    gap: 2px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-info-box
+    .airport-tour-list
+    .tour-item
+    .tour-description
+    .tour-title {
+    font-size: 13px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-info-box
+    .airport-tour-list
+    .tour-item
+    .tour-description
+    .tour-desc {
+    font-size: 13px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-info-box
+    .airport-tour-list
+    .tour-item
+    .btn__event {
+    margin-top: 4px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-promo-box
+    .box-illustration {
+    width: 109px;
+    transform: translateY(-46%);
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-promo-box
+    .box-illustration
+    > img {
+    max-width: 109px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-promo-box
+    .promo-content {
+    gap: 6px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-promo-box
+    .promo-content
+    .promo-list
+    > p {
+    font-size: 13px;
+    text-align: center;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-promo-box
+    .promo-list {
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-promo-box
+    .promo-list
+    .promo-item {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-promo-box
+    .promo-list
+    .promo-item
+    .promo-logo {
+    width: 185px;
+    aspect-ratio: 185/ 110 auto;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-promo-box
+    .promo-list
+    .promo-item
+    .promo-item-content
+    .promo-item-title {
+    font-size: 13px;
+    text-align: center;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-promo-box
+    .promo-list
+    .promo-item
+    .promo-item-content
+    .promo-item-title
+    .promo-period {
+    display: block;
+    width: 100%;
+    font-size: 13px;
+    font-weight: 400;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-promo-box
+    .promo-list
+    .promo-item
+    .promo-item-content
+    .promo-item-desc {
+    font-size: 13px;
+    text-align: center;
+    margin-top: 6px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-promo-box
+    .promo-list
+    .promo-item
+    .promo-item-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-promo-box
+    .promo-list
+    .promo-item
+    .promo-item-content
+    .btn__event {
+    margin-top: 12px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-promo-box
+    .promo-list
+    .promo-item
+    .promo-item-content
+    .btn__event[disabled] {
+    padding-inline: 12px;
+  }
+  #vk_event
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-promo-box
+    .promo-note {
+    margin-top: 20px;
+    font-size: 11px;
+    top: -1%;
+    left: 9%;
+  }
+
+  /* 퀴즈 이벤트 */
+  #vk_event .section-quiz-event {
+    padding: 40px 0;
+  }
+  #vk_event .section-quiz-event .quiz-event-content {
+    padding: 20px 12px;
+  }
+  #vk_event .section-quiz-event .quiz-deco.quiz-deco-heart {
+    width: 50px;
+    top: -1%;
+  }
+  #vk_event .section-quiz-event .quiz-deco.quiz-deco-heart > {
+    max-width: 50px;
+  }
+  #vk_event .section-quiz-event .quiz-deco.quiz-deco-thumb {
+    width: 48px;
+    top: 67%;
+    right: 6%;
+    z-index: 1;
+  }
+  #vk_event .section-quiz-event .quiz-deco.quiz-deco-thumb > img {
+    max-width: 48px;
+  }
+  #vk_event .section-quiz-event .quiz-event-content {
+    font-size: 24px;
+  }
+  #vk_event .section-quiz-event .quiz-title-row .quiz-title {
+    font-size: 24px;
+  }
+  #vk_event .section-quiz-event .quiz-title-row .quiz-period {
+    font-size: 13px;
+  }
+  #vk_event .section-quiz-event .quiz-title-row .quiz-winner {
+    margin-top: 2px;
+    font-size: 10px;
+  }
+  #vk_event .section-quiz-event .quiz-title-row .quiz-desc {
+    margin-top: 2px;
+    font-size: 13px;
+    text-align: center;
+  }
+  #vk_event .section-quiz-event .quiz-prize-box {
+    margin-top: 20px;
+  }
+  #vk_event .section-quiz-event .quiz-prize-box .quiz-prize-title {
+    font-size: 24px;
+  }
+  #vk_event .section-quiz-event .quiz-prize-box .quiz-prize-list {
+    display: none;
+  }
+  #vk_event .section-quiz-event .quiz-prize-box .quiz-prize-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  #vk_event .section-quiz-event .quiz-prize-box .quiz-prize-mobile .prize-img {
+    width: 100%;
+    padding-inline: 12px;
+  }
+  #vk_event
+    .section-quiz-event
+    .quiz-prize-box
+    .quiz-prize-mobile
+    .prize-img
+    > img {
+    width: 100%;
+  }
+  #vk_event .section-quiz-event .quiz-prize-box .quiz-prize-mobile .prize-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  #vk_event
+    .section-quiz-event
+    .quiz-prize-box
+    .quiz-prize-mobile
+    .prize-desc
+    .prize-desc-item {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 150%;
+    color: var(--color-text);
+    text-align: center;
+  }
+  #vk_event
+    .section-quiz-event
+    .quiz-prize-box
+    .quiz-prize-mobile
+    .prize-desc
+    .prize-desc-item
+    .quiz-prize-period {
+    display: block;
+    margin-top: 2px;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 150%;
+    color: var(--color-accent-orange);
+    text-align: center;
+  }
+  #vk_event .section-quiz-event .quiz-question-box {
+    margin-top: 20px;
+  }
+  #vk_event .section-quiz-event .quiz-question-box .quiz-question-title {
+    font-size: 24px;
+  }
+  #vk_event .section-quiz-event .quiz-question-box .quiz-question-list {
+    margin-top: 12px;
+    gap: 12px;
+  }
+  #vk_event
+    .section-quiz-event
+    .quiz-question-box
+    .quiz-question-list
+    .quiz-question {
+    gap: 8px;
+    width: 100%;
+  }
+  #vk_event
+    .section-quiz-event
+    .quiz-question-box
+    .quiz-question-list
+    .quiz-question
+    .quiz-q {
+    font-size: 13px;
+    text-align: center;
+  }
+  #vk_event
+    .section-quiz-event
+    .quiz-question-box
+    .quiz-question-list
+    .quiz-question
+    .quiz-q
+    > em {
+    margin-top: 2px;
+    text-align: center;
+  }
+  #vk_event
+    .section-quiz-event
+    .quiz-question-box
+    .quiz-question-list
+    .quiz-question
+    .quiz-choices {
+    gap: 12px;
+  }
+  #vk_event
+    .section-quiz-event
+    .quiz-question-box
+    .quiz-question-list
+    .quiz-question
+    .quiz-choices
+    > label {
+    font-size: 13px;
+  }
+  #vk_event .section-quiz-event .quiz-tip-box {
+    margin-top: 20px;
+    padding: 20px 12px;
+  }
+  #vk_event .section-quiz-event .quiz-tip-box .quiz-illustration {
+    width: 49px;
+    top: 40%;
+    left: -5%;
+  }
+  #vk_event .section-quiz-event .quiz-tip-box .quiz-illustration > img {
+    max-width: 49px;
+  }
+  #vk_event .section-quiz-event .quiz-tip-box .quiz-tip-title {
+    font-size: 24px;
+  }
+  #vk_event .section-quiz-event .quiz-tip-box .quiz-tip-desc {
+    margin-top: 2px;
+    font-size: 13px;
+  }
+  #vk_event .section-quiz-event .quiz-tip-box .quiz-tip-imgs {
+    margin-top: 20px;
+    width: 100%;
+    padding-inline: 40px;
+  }
+  #vk_event .section-quiz-event .quiz-submit-row {
+    width: 100%;
+    padding-inline: 5px;
+    margin-top: 20px;
+  }
+
+  /* 푸터 카피라이트 */
+  #vk_event .section-footer {
+    padding: 16px 28px;
+  }
+  #vk_event
+    .section-footer
+    .section-footer-inner
+    .section-footer-content
+    .section-footer-logo {
+    width: 67px;
+  }
+  #vk_event
+    .section-footer
+    .section-footer-inner
+    .section-footer-content
+    .section-footer-text
+    > span {
+    font-size: 8px;
+  }
+
+  /* 공용 컴포넌트 */
+  .btn__event {
+    font-size: 14px;
+  }
+  .btn-toggle {
+    height: 45px;
+  }
+  .btn-more {
+    width: 180px;
+    height: 40px;
+    font-size: 13px;
+  }
+  .btn-submission {
+    width: 100%;
+    font-size: 15px;
+  }
+
+  .tag-highlight {
+    font-size: 13px;
+  }
+
+  .view-pc {
+    display: none;
+  }
+  .view-mo {
+    display: block;
+  }
+}
+
+/*****************************************************
+ * 언어별 커스텀 CSS
+ *****************************************************/
+
+/* 폰트 적용 */
+#vk_event[data-language="enu"] {
+  font-family: "NotoSans", sans-serif;
+}
+#vk_event[data-language="jpn"] {
+  font-family: "NotoSansJP", sans-serif;
+}
+#vk_event[data-language="cht"] {
+  font-family: "NotoSansTC", sans-serif;
+}
+#vk_event[data-language="chs"] {
+  font-family: "MicrosoftYaHei", sans-serif;
+}
+#vk_event[data-language="kor"] {
+  font-family: "NotoSansKR", sans-serif;
+}
+#vk_event[data-language="jpn"] [data-font="title"] {
+  font-family: "GenJyuuGothicX", sans-serif;
+}
+#vk_event[data-language="chs"] [data-font="title"] {
+  font-family: "ZhanKuCangErYuYang", sans-serif;
+}
+
+/* ENU (영어) */
+#vk_event[data-language="enu"]
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-info
+  .info-item_img {
+  padding-left: 120px;
+}
+#vk_event[data-language="enu"]
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  > [class^="airport-"]
+  .event-title-row
+  .event-title
+  .event-title-sub {
+  font-size: 24px;
+}
+
+@media (max-width: 640px) {
+  #vk_event[data-language="enu"] .section-visit .visit-text-ko {
+    font-size: 12px;
+  }
+  #vk_event[data-language="enu"]
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    > [class^="airport-"]
+    .event-title-row
+    .event-title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+  #vk_event[data-language="enu"]
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-promo-box
+    .promo-list
+    .promo-item
+    .promo-item-content
+    .promo-item-desc {
+    font-size: 11px;
+  }
+  #vk_event[data-language="enu"]
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-promo-box
+    .promo-content
+    .promo-list
+    > p {
+    font-size: 10px;
+  }
+  #vk_event[data-language="enu"]
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-info-box
+    .airport-info-header
+    .info-item
+    .item-txt {
+    font-size: 10px;
+  }
+  #vk_event[data-language="enu"]
+    .section-quiz-event
+    .quiz-prize-box
+    .quiz-prize-mobile
+    .prize-desc
+    .prize-desc-item {
+    font-weight: 700;
+  }
+  #vk_event[data-language="enu"]
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    > [class^="airport-"]
+    .event-title-row
+    .event-title
+    .event-title-sub {
+    font-size: 12px;
+  }
+}
+
+/* JPN (일어) */
+
+/* CHS (중간) */
+#vk_event[data-language="chs"]
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-info
+  .info-item {
+  gap: 20px;
+}
+#vk_event[data-language="chs"]
+  .section-quiz-event
+  .quiz-prize-box
+  .quiz-prize-title {
+  font-size: 32px;
+}
+#vk_event[data-language="chs"]
+  .section-quiz-event
+  .quiz-question-box
+  .quiz-question-title {
+  font-size: 32px;
+}
+#vk_event[data-language="chs"]
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-info
+  .info-item_img {
+  padding-left: 110px;
+}
+
+@media (max-width: 640px) {
+  #vk_event[data-language="chs"]
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-content-box
+    .event-info
+    .info-item {
+    gap: 2px;
+  }
+  #vk_event[data-language="chs"] .section-quiz-event .quiz-prize-box {
+    margin-top: 28px;
+  }
+  #vk_event[data-language="chs"]
+    .section-quiz-event
+    .quiz-prize-box
+    .quiz-prize-title {
+    font-size: 24px;
+  }
+  #vk_event[data-language="chs"]
+    .section-quiz-event
+    .quiz-question-box
+    .quiz-question-title {
+    font-size: 24px;
+  }
+  #vk_event[data-language="chs"]
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-description {
+    text-align: center;
+  }
+  #vk_event[data-language="chs"]
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-content-box
+    .event-info
+    .info-item
+    .item-desc
+    > p
+    > em {
+    font-size: 10px;
+  }
+  #vk_event[data-language="chs"]
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-content-box
+    .event-prizes
+    .event-prize-mobile
+    .prize-desc
+    .prize-desc-item {
+    width: unset;
+  }
+}
+
+/* CHT (중번) */
+#vk_event[data-language="cht"]
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-info
+  .info-item {
+  font-size: 22px;
+}
+#vk_event[data-language="cht"]
+  .section-booth
+  .booth-tab-content
+  .booth-panel
+  .airport-event-box
+  .event-content-box
+  .event-info
+  .info-item_img {
+  padding-left: 100px;
+}
+
+@media (max-width: 640px) {
+  #vk_event[data-language="cht"]
+    .section-booth
+    .booth-tab-content
+    .booth-panel
+    .airport-event-box
+    .event-content-box
+    .event-info
+    .info-item {
+    font-size: 13px;
+  }
+}
