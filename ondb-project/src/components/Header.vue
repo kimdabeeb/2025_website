@@ -1,168 +1,169 @@
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue'
+import { gsap, Power2 } from 'gsap'
+
+const isMenuOpen = ref(false)
+const currentTime = ref({ hours: 12, minutes: '00', ampm: 'PM' })
+const menuOverlay = ref(null)
+const menuWrap = ref(null)
+
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value
+  const menuRoot = document.querySelector('.Menu_root')
+  
+  if (isMenuOpen.value) {
+    openMenu(menuRoot)
+  } else {
+    closeMenu(menuRoot)
+  }
+}
+
+const openMenu = (menuRoot) => {
+  gsap.set(menuRoot, { opacity: 1, visibility: 'inherit' })
+  gsap.set(menuOverlay.value, { opacity: 1, visibility: 'inherit' })
+  
+  gsap.to(menuOverlay.value, {
+    y: 0,
+    duration: 0.8,
+    ease: Power2.easeOut
+  })
+  
+  gsap.to(menuWrap.value, {
+    y: 0,
+    duration: 0.6,
+    ease: Power2.easeOut,
+    delay: 0.1
+  })
+}
+
+const closeMenu = (menuRoot) => {
+  gsap.to(menuOverlay.value, {
+    opacity: 0,
+    duration: 0.4,
+    ease: Power2.easeOut
+  })
+  
+  gsap.to(menuWrap.value, {
+    y: '-100%',
+    duration: 0.5,
+    ease: Power2.easeIn,
+    onComplete: () => {
+      gsap.set(menuRoot, { opacity: 0, visibility: 'hidden' })
+      gsap.set(menuOverlay.value, { visibility: 'hidden' })
+    }
+  })
+}
+
+const onNavItemClick = (section) => {
+  // 메뉴 닫기
+  isMenuOpen.value = false
+  const menuRoot = document.querySelector('.Menu_root')
+  
+  gsap.to(menuRoot, {
+    opacity: 0,
+    duration: 0.3,
+    ease: Power2.easeOut,
+    onComplete: () => {
+      gsap.set(menuRoot, { visibility: 'hidden' })
+      gsap.set(menuOverlay.value, { y: '-100%', visibility: 'hidden' })
+      gsap.set(menuWrap.value, { y: '-100%' })
+      
+      // 섹션으로 스크롤
+      const targetSection = document.getElementById(section)
+      if (targetSection) {
+        targetSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        })
+      }
+    }
+  })
+}
+
+/* global setInterval, clearInterval */
+const updateTime = () => {
+  const now = new Date()
+  const seoulTime = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Seoul' }))
+  const hours = seoulTime.getHours()
+  const minutes = seoulTime.getMinutes().toString().padStart(2, '0')
+  const ampm = hours >= 12 ? 'PM' : 'AM'
+  const displayHours = hours % 12 || 12
+  
+  currentTime.value = {
+    hours: displayHours,
+    minutes,
+    ampm
+  }
+}
+
+let timeInterval
+
+onMounted(() => {
+  updateTime()
+  timeInterval = setInterval(updateTime, 1000)
+  
+  gsap.set(menuOverlay.value, { y: '-100%' })
+  gsap.set(menuWrap.value, { y: '-100%' })
+})
+
+onUnmounted(() => {
+  if (timeInterval) {
+    clearInterval(timeInterval)
+  }
+})
+
+</script>
+
 <template>
-  <header class="flex p-6">
-    <div class="header_wrap flex_col">
-      <div class="header_cont flex">
-        <!-- Logo -->
-        <a href="/" class="header-logo"><h2>O/D</h2></a>
-        <!-- Menu Toggle -->
-        <div class="header-toggle">
-          <label class="relative flex items-center justify-center p-4 pointer-events-auto cursor-pointer">
-            <input
-              type="checkbox"
-              class="hidden"
-              id="menu-toggle"
-              v-model="isMenuOpen"
-            />
-            <span>
-              <svg
-                class="header-menu-icon"
-                width="32"
-                height="32"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  class="header-menu-path-1"
-                  :class="{ 'rotate-45 translate-y-2': isMenuOpen }"
-                  d="M0 8H32"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  vector-effect="non-scaling-stroke"
-                  stroke-linecap="square"
-                ></path>
-                <path
-                  class="header-menu-path-2"
-                  :class="{ '-rotate-45 -translate-y-2': isMenuOpen }"
-                  d="M0 16H32"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  vector-effect="non-scaling-stroke"
-                  stroke-linecap="square"
-                ></path>
-              </svg>
-            </span>
-          </label>
-        </div>
-
-        <!-- Book a Call Button -->
-        <!-- <div class="flex items-center gap-4">
-          <a href="/bookacall" class="button-primary">
-            <div class="flex">
-              <span class="font-medium">Book a Call</span>
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M9.33333 4L13.5 8L9.33333 12M13 8H2.5"
-                  stroke="currentColor"
-                  stroke-opacity="1"
-                  stroke-width="1.5"
-                  stroke-linecap="square"
-                ></path>
-              </svg>
-            </div>
-          </a>
-        </div> -->
+  <header :class="{ 'menu-open': isMenuOpen }">
+    <div class="Header_wrap grid">
+      <!-- Logo -->
+      <a class="Header_logo" href="javascript:;"><h2>on.db</h2></a>
+      <!-- Toggle -->
+      <button 
+        class="Menu_btn" 
+        aria-controls="menu" 
+        :aria-expanded="isMenuOpen"
+        @click="toggleMenu"
+      >
+        <span class="Menu_btn__txt btn_txt__open">Menu</span>
+        <span class="Menu_btn__txt btn_txt__close">Close</span>
+      </button>
+      <div class="Local_time Local_hour">
+        South of Korea {{ currentTime.hours }}<span class="Local_dot">:</span>{{ currentTime.minutes }} {{ currentTime.ampm }}
       </div>
+    </div>
 
-
-      <!-- Navigation Menu -->
-      <div class="header-menu" :class="{ 'menu-open': isMenuOpen }">
-        <ul class="header-menu-list py-4 px-6">
-          <li class="header-menu-item">
-            <a
-              class="text-2xl font-medium text-center"
-              href="/#about"
-              @click="closeMenu"
-            >
-              About me
-            </a>
-          </li>
-          <li class="header-menu-item">
-            <a
-              class="text-2xl font-medium text-center"
-              href="/#work"
-              @click="closeMenu"
-            >
-              Projects
-            </a>
-          </li>
-          <li class="header-menu-item">
-            <a
-              class="text-2xl font-medium text-center"
-              href="/#pricing"
-              @click="closeMenu"
-            >
-              Experience
-            </a>
-          </li>
-        </ul>
+    <!-- Menu -->
+    <div class="Menu_root" :class="{ 'menu-open': isMenuOpen }" data-lenis-prevent="true">
+      <div class="Menu_overlay" ref="menuOverlay">
+        <div class="Menu_overlay_bg"></div>
+      </div>
+      <div class="Menu_wrap" ref="menuWrap">
+        <div class="Menu_cont">
+          <div class="Menu_cont__nav grid">
+            <nav class="Menu_nav">
+              <menu class="Menu_nav__list">
+                <li class="Menu_nav__item">
+                  <div @click="onNavItemClick('home')"><a class="Menu_nav__link">Home</a></div>
+                </li>
+                <li class="Menu_nav__item">
+                  <div @click="onNavItemClick('about')"><a class="Menu_nav__link">Get to Know Me</a></div>
+                </li>
+                <li class="Menu_nav__item">
+                  <div @click="onNavItemClick('projects')"><a class="Menu_nav__link">What I've Done</a></div>
+                </li>
+                <li class="Menu_nav__item">
+                  <div @click="onNavItemClick('contact')"><a class="Menu_nav__link">Contact</a></div>
+                </li>
+              </menu>
+            </nav>
+          </div>
+        </div>
       </div>
     </div>
   </header>
 </template>
 
-<script setup>
-import { ref } from "vue";
-
-const isMenuOpen = ref(false);
-
-const closeMenu = () => {
-  isMenuOpen.value = false;
-};
-</script>
-
 <style scoped>
-
-
-.header-menu {
-  overflow: hidden;
-  transition: all .3s ease-in-out;
-  max-height: 0;
-  opacity: 0;
-}
-
-.header-menu.menu-open {
-  max-height: 300px;
-  opacity: 1;
-  border-top-width: 1px
-}
-.header-menu-icon {
-  transition: all 2s;
-}
-
-.header-menu-path-1,
-.header-menu-path-2 {
-  transition: all 2s origin-center;
-}
-
-.header-menu-item,
-.button-primary {
-  transition: all 2s;
-  pointer-events: auto; 
-}
-
-#menr-toolgle > path:nth-of-type1 { transform: rotate(45deg);}
-#menr-toolgle > path:nth-of-type2 { transform: rotate(-45deg);}
-
-@media (max-width: 768px) {
-  .header-card {
-    /* margin-right: 1rem;
-    margin-left: 1rem; 
-    min-width: auto;*/
-  }
-
-  /* .header-header {
-    padding: 0 1rem;
-  } */
-
-  .header-menu-list {
-    padding: 0 1rem;
-  }
-}
 </style>

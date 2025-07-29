@@ -1,0 +1,322 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  font-weight: bold;
+  text-wrap: balance;
+  max-inline-size: 25ch;
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  /* font: inherit; */
+  /* font-family: sans-serif; */
+  vertical-align: baseline;
+}
+
+html {
+  width: fit-content;
+  height: auto;
+  line-height: 1.15;
+  font-size: 62.5%; /* 1rem = 10px */
+  /* Prevent font scaling in landscape */
+  -webkit-text-size-adjust: none; /*Chrome, Safari, newer versions of Opera*/
+  -moz-text-size-adjust: none; /*Firefox*/
+  -ms-text-size-adjust: none; /*Ie*/
+  -o-text-size-adjust: none; /*old versions of Opera*/
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  color: inherit;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+button, input, optgroup, option, select, textarea {
+  display: block;
+  margin: 0;
+  border: 0;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: normal;
+  color: inherit;
+  background: none;
+  text-transform: none;
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  overflow: visible;
+}
+
+[type=button],[type=reset],[type=submit],button {
+  -webkit-appearance: button;
+}
+
+[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  border: none;
+  white-space: normal
+}
+
+progress {
+  vertical-align: baseline
+}
+
+textarea {
+  overflow: auto
+}
+
+[type=checkbox],[type=radio] {
+  box-sizing: border-box;
+  padding: 0
+}
+
+[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button {
+  height: auto
+}
+
+[type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px
+}
+
+[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit
+}
+
+[hidden],template {
+  display: none
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+}
+
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+caption{
+  position: absolute !important;
+  top:auto;
+  left:-10000px;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
+
+/* resizing */
+img[src$=".gif"],
+img[src$=".png"] {
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: -o-crisp-edges; /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+}
+
+div {
+  image-rendering: -moz-crisp-edges; /* Firefox */
+  image-rendering: -o-crisp-edges; /* Opera */
+  image-rendering: -webkit-optimize-contrast; /* Webkit (non-standard naming) */
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor; /* IE (non-standard property) */
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+ol, ul, li {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html,
+body {
+  color: var(--color-text);
+  background-color: var(--color-bg-dark);
+  /* min-width: 320px;
+  min-height: 100dvh; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0
+}
+
+html.lenis.lenis-stopped {
+  overflow: hidden
+}
+
+body, body > div {
+  width: fit-content;
+  width: -moz-fit-content;
+}
+
+a {
+  font-weight: 500;
+  color: var(--color-primary);
+  text-decoration: inherit;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+.hidden .blind {
+  border: 0;
+  clip: rect(0 0 0 0);           /* IE 구버전용: 잘라냄 */
+  clip-path: inset(50%);         /* 현대 브라우저용: 잘라냄 */
+  width: 1px;
+  height: 1px;
+  margin: -1px;                  /* 화면 밖으로 밀어냄 */
+  overflow: hidden;             /* 넘치는 텍스트 숨김 */
+  padding: 0;
+  position: absolute;           /* 레이아웃 영향 X */
+  white-space: nowrap;  
+}
+
+.visible {
+  visibility: visible;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+.flex_col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(calc(var(--grid-columns) * 2), 1fr);
+  grid-column-gap: var(--padding-4x);
+}
+
+.txt {
+  font-size: clamp(13px, 100vw, 16px);
+  line-height: 1.4;
+  word-break: balance;
+}
+
+/**** font  ****/
+/* Noto Sans */
+@font-face {
+  font-family: "Noto Sans", sans-serif;
+  src: url("../font/NotoSans/NotoSans-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "Noto Sans", sans-serif;
+  src: url("../font/NotoSans/NotoSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Noto Sans", sans-serif;
+  src: url("../font/NotoSans/NotoSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Noto Sans", sans-serif;
+  src: url("../font/NotoSans/NotoSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Author-Variable';
+  src: url('../font/Author-Variable/Author-Variable.woff2') format('woff2'),
+       url('../font/Author-Variable/Author-Variable.woff') format('woff'),
+       url('../font/Author-Variable/Author-Variable.ttf') format('truetype');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ClashDisplay-Variable';
+  src: url('../font/ClashDisplay/ClashDisplay-Variable.woff2') format('woff2'),
+       url('../font/ClashDisplay/ClashDisplay-Variable.woff') format('woff'),
+       url('../font/ClashDisplay/ClashDisplay-Variable.ttf') format('truetype');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}

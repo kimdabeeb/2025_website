@@ -36,8 +36,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="projects" ref="projectsContainer">
-    <h2>My Projects</h2>
+  <div id="Projects" class="wrapper" ref="projectsContainer">
+    <h2>What I've Done</h2>
     <div class="projects-grid">
       <div 
         v-for="project in projects" 
