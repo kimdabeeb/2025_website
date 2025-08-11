@@ -3,10 +3,27 @@
 @layer reset, components, utilities;
 
 
-html,
 body {
   font-family: var(--font-title);
+  background: var(--theme-main-bg);
+  color: var(--theme-title);
+  will-change: background-image, background-color, color;
+  transition: 
+    background-image 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    background-color 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+    color 1.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
+
+section[data-theme] {
+  min-height: 65svh;
+  height: auto;
+  padding: 2rem;
+}
+
+section[id="footer-section"] {
+  height: auto;
+  min-height: 100%;
+} 
 
 :root {
   /* font */
@@ -16,20 +33,19 @@ body {
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 
   /* color */
   --color: tomato;
   --color-black: #333333;
   --color-white: #ffffff;
   --color-text: #f2e8de;
-  --color-primary: #48cadf;
-  --color-secondary: #fbe5df;
-  --color-accent-blue: #d5edf4;
-  --color-accent-orange: #d56d50;
-  --color-accent-red: #ce5a3a;
-  --color-accent-pink: #f9bfaf;
+
+  /* 기본 테마 (스크롤로 동적 변경됨) */
+  --theme-main-bg: #8DC9F4;
+  --theme-sub-bg: #f2fbfe;
+  --theme-title: #070F36;
+  --theme-deco: #8dc9f4;
+  --theme-border: #98bde2;
 
   --color-bg-dark: #151515;
   --color-bg-alt: #1d1d1d;
@@ -40,7 +56,6 @@ body {
   --blur-3-size: clamp(100px, 10vw, 10vw);
   --blur-amount: clamp(40px, 5vw, 90px);
 
-  --width: clamp(187.5vw ,100vw, 23.438vw);
   --size: clamp(10rem, 1rem + 40vmin, 30rem);
   --duration: 60s;
   --scroll-start: 0;
@@ -60,61 +75,47 @@ body {
   --tablet-screen: 768px;
   --mobile-screen: 767px;
 
-  /* Responsive values - Mobile First */
-  --menu-column: 5;
-  --grid-column: 12;
+  /* Layout & Sizing */
   --grid-gutter: 8rem;
   --border-radius-default: .75rem;
-
+  --content-max-width: 100vw;
   --header-padding: calc(var(--lacing-2x) * 2);
   --wrapper-padding: calc(var(--lacing-2x) * 8);
-  --content-max-width: 100vw;
+  
+  /* Grid column positions */
+  --logo-column: 1;
+  --menu-column: 7;
+  --grid-columns: 12;
 }
-
-/* Tablet & Desktop */
-@media (min-width: 768px) {
-  :root {
-    --menu-column: 5;
-    --header-padding: calc(var(--lacing-2x) * 2);
-    --wrapper-padding: calc(var(--lacing-4x) * 2);
-    --content-max-width: 1200px;
-  }
-}
-
-@media (min-width: 1024px) {
-  :root {
-    --wrapper-padding: calc(var(--lacing-4x) * 4);
-  }
-}
-
-
 
 /************** HEADER ****************/
-header {
+.wrap {
   width: 100vw;
+  max-width: var(--content-max-width);
+  overflow-x: hidden;
+}
+
+header {
+  width: 100%;
   position: fixed;
   top: 0;
   left: 0;
   padding: var(--header-padding) var(--lacing-2x);
-  pointer-events: none;
-  font-weight: 700;
   z-index: var(--z-index-header);
-  font-size: clamp(12px, 100vw, 16px);
+  font-size: clamp(12px, 2vw, 16px);
   font-weight: bold;
 
   & .Header_wrap {
-    display: grid;
-    grid-template-columns: repeat(var(--grid-columns), 1fr);
     position: relative;
     align-items: center;
     padding: 0 var(--lacing-4x);
     z-index: var(--z-index-header);
-    color: var(--color-white);
+    color: var(--theme-title);
+    font-weight: 700;
+    grid-template-columns: repeat(var(--grid-columns), 1fr);
+    transition: color 0.8s ease-out;
     
     & .Header_logo { 
-      color: var(--color-white);
-      grid-column-start: var(--logo-column);
-
       & h2 {
         text-transform: uppercase;
         letter-spacing: -0.02em;
@@ -126,13 +127,13 @@ header {
       cursor: pointer;
       pointer-events: all;
       min-width: 60px;
-      height: 20px;
+      height: 15px;
       overflow: hidden;
       grid-column-start: var(--menu-column);
 
       & .Menu_btn__txt {
         line-height: 1.2;
-        color: var(--color-white);
+        margin-bottom: var(--lacing-4x);
         position: absolute;
         top: 0;
         left: 0;
@@ -143,10 +144,11 @@ header {
     }
 
     & .Local_time {
+      white-space: nowrap;
       text-align: right;
       pointer-events: all;
       letter-spacing: -0.01em;
-      grid-column-start: var(--grid-column);
+      grid-column-start: var(--grid-columns);
 
       & .Local_dot {
         animation: Local_time_dot 1s infinite;
@@ -183,8 +185,8 @@ header.menu-open {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100svh;
+  width: 100%;
+  height: 100vh;
   opacity: 0;
   visibility: hidden;
   overflow-y: auto;
@@ -208,18 +210,19 @@ header.menu-open {
   & .Menu_wrap {
     position: relative;
     width: 100%;
-    padding: calc(var(--lacing-2x) * 1.2) calc(var(--lacing-2x) * 1.5);
+    padding: var(--lacing-2x) calc(var(--lacing-2x) * 1.5);
 
     & .Menu_cont {
       min-height: auto;
-      background-color: var(--color-bg-alt);
+      background-color: var(--theme-sub-bg);
+      border: 2px solid var(--theme-border);
       border-radius: var(--border-radius-default);
-      padding: calc(var(--lacing-2x) * 7) calc(var(--lacing-2x) * 2);
+      padding: calc(var(--lacing-2x) * 5) 0 calc(var(--lacing-2x) * 4);
+      transition: background-color 0.5s ease, border-color 0.5s ease;
 
       & .Menu_cont__nav {
-      
         & .Menu_nav {
-          grid-column-start: 8;
+          grid-column-start: 4;
 
           & .Menu_nav__list {
             list-style: none;
@@ -229,11 +232,13 @@ header.menu-open {
 
               & > div {
                 & .Menu_nav__link {
-                  font-size: clamp(18px, 100vw, 34px);
+                  font-size: clamp(14px, 2vw, 34px);
+                  line-height: 1.2;
                   font-weight: 700;
                   white-space: nowrap;
                   text-transform: uppercase;
-                  color: var(--color-white);
+                  color: var(--theme-title);
+                  transition: color 0.8s ease-out, opacity 0.3s ease;
                   &:hover {
                     opacity: 0.7;
                   }
@@ -250,21 +255,22 @@ header.menu-open {
 /************** MAIN ****************/
 .wrapper {
   width: 100vw;
-  min-height: 100dvh;
-  padding: var(--wrapper-padding) var(--lacing-2x) 0;
+  /* height: 100svh; */
+  padding: var(--wrapper-padding) var(--lacing-4x) 0;
   max-width: var(--content-max-width);
   margin: 0 auto;
 }
 
 #Home {
   justify-content: center;
+  /* height: 100svh; */
 
   & .Home_content {
     text-align: center;
 
     & h1 {
       font-size: clamp(2rem, 5vw, 4rem);
-      color: var(--color-white);
+      color: var(--theme-title);
       margin-bottom: 1rem;
     }
 
@@ -279,8 +285,9 @@ header.menu-open {
 /************** ABOUT ****************/
 #About {
   & .About_cont {
+    overflow:  hidden;
     & h2 {
-      color: var(--color-white); 
+      color: var(--theme-title); 
       font-size: clamp(1.5rem, 100vw, 3.5rem);
       letter-spacing: .125rem;
     }
@@ -314,7 +321,7 @@ header.menu-open {
       & .tool-item {
         flex-shrink: 0;
         width: calc(var(--lacing-4x) * 4);
-        height: var(--size);
+        /* height: var(--size); */
 
         & img {
           width: 100%;
@@ -327,7 +334,58 @@ header.menu-open {
 }
 
 /************** PROJECTS ****************/
-/* #Projects { } */
+#Projects { 
+  padding: var(--header-padding);
+
+  & h2 {
+    text-align: center;
+    margin-bottom: var(--header-padding);
+    color: #2c3e50;
+  }
+
+  & .projects-cont {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--header-padding);
+    
+    & .project-card {
+      background: white;
+      border-radius: 8px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+
+      & h3 {
+        color: #2c3e50;
+        margin-bottom: var(--header-padding);
+      }
+
+      & p {
+        color: #666;
+        margin-bottom: var(--header-padding);
+        line-height: 1.6;
+      }
+
+      & .technologies {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--lacing-2x);
+
+        & .tech-tag {
+          background: #42b883;
+          color: white;
+          padding: 0.25rem 0.75rem;
+          border-radius: 20px;
+          font-size: 0.875rem;
+        }
+      }
+    } 
+
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+
+  }
+}
 
 
 
@@ -362,3 +420,44 @@ header.menu-open {
     transform: translateX(-50%);
   }
 }
+
+/* Mobile & Tablet */
+@media (max-width: 768px) {
+  
+  /* :root {
+    --wrapper-padding: calc(var(--lacing-4x) * 2);
+  } */
+  /* 
+    body, body > div {
+      width: 100vw;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-y;
+    } */
+
+  .wrapper {
+    padding: var(--wrapper-padding) calc(var(--lacing-4x) * 1.5) 0;
+  }
+
+  header {
+      & .Menu_btn {
+        min-width: 50px;
+        min-height: 15px;
+        height: auto;
+      }
+    }
+    .Menu_root {
+      & .Menu_wrap {
+          & .Menu_cont {
+              & .Menu_cont__nav {
+                  & .Menu_nav {
+                      grid-column-start: 3;
+                  }
+              }
+          }
+      }
+  }
+
+}
+

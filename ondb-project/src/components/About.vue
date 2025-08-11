@@ -1,32 +1,34 @@
-<script setup>
+<script setup lang="ts">
+import { computed } from 'vue'
+
 const tools = ['vue', 'js', 'ts', 'html5', 'css3', 'figma','github', 'gitlab']
+const duplicatedTools = computed(() => [
+  ...tools, ...tools, ...tools, ...tools
+])
 </script>
 
 <template>
-  <div id="About" class="wrapper flex_col">
-    <div class="About_cont"> 
+  <div id="About" >
+    <div class="About_cont wrapper flex_col"> 
       <h2>Get to Know Me</h2>
         <p><img src="../../public/img/react_logo.webp" alt="emoji_icon" /></p>
         <div class="About_introduce">
-          <strong>creating beautiful </strong>
+          <strong></strong>
           <p class="txt">
-            I'm a passionate web developer with a love for creating beautiful 
-            <br />and functional web applications. 
-            <br />I enjoy working with modern technologies 
-            <br />and learning new things every day.
-            <br />My journey in web development started with curiosity 
-            <br />and has evolved into a career where I can 
-            <br />combine creativity with technical skills to build amazing digital experiences.
+            nice to meet u, I'm kdb 
+            <br />💼 simply introduce text
+            <br />🔑 my strong keyword text
+            <br />✔️ I want to show my website 
           </p>
         </div>
-    </div>
-    <!-- Tool track -->
-    <div class="tool-slider">
-      <div class="tool-track">
-        <div class="tool-item" v-for="(tool, index) in [...tools, ...tools, ...tools, ...tools]" :key="index">
-          <img :src="`/img/${tool}.svg`" :alt="tool">
+        <!-- Tool track -->
+        <div class="tool-slider">
+          <div class="tool-track">
+            <div class="tool-item" v-for="(tool, index) in duplicatedTools" :key="index">
+              <img :src="`/img/${tool}.svg`" :alt="tool">
+            </div>
+          </div>
         </div>
-      </div>
     </div>
   </div>
 </template>

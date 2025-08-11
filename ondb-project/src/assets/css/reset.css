@@ -44,7 +44,9 @@ html {
   height: auto;
   line-height: 1.15;
   font-size: 62.5%; /* 1rem = 10px */
+  overflow-x: hidden;
   /* Prevent font scaling in landscape */
+  -webkit-overflow-scrolling: touch;
   -webkit-text-size-adjust: none; /*Chrome, Safari, newer versions of Opera*/
   -moz-text-size-adjust: none; /*Firefox*/
   -ms-text-size-adjust: none; /*Ie*/
@@ -268,8 +270,6 @@ a:hover {
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(calc(var(--grid-columns) * 2), 1fr);
-  grid-column-gap: var(--padding-4x);
 }
 
 .txt {
